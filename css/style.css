@@ -1,0 +1,817 @@
+/* ---------------------------------- */
+/* --- 1. GLOBAL DESIGN SYSTEM & RESET --- */
+/* ---------------------------------- */
+
+/* Import the "Inter" font */
+/* --- 1. FONT DEFINITIONS & GLOBAL RESET --- */
+
+/* Define the Regular weight */
+@font-face {
+    font-family: 'LG Smart';
+    /* We give our font a clean name */
+    src: url('../fonts/LGSmHaRtest.woff2') format('woff2'),
+        /* Modern browsers first */
+        url('../fonts/LGSmHaRtest.woff') format('woff');
+    /* Fallback */
+    font-weight: 400;
+    /* 400 is the numeric value for 'normal' or 'regular' */
+    font-style: normal;
+    font-display: swap;
+    /* Improves perceived performance */
+}
+
+/* Define the Bold weight */
+@font-face {
+    font-family: 'LG Smart';
+    /* Use the SAME name */
+    src: url('../fonts/LGSmHaBtest.woff2') format('woff2'),
+        url('../fonts/LGSmHaBtest.woff') format('woff');
+    font-weight: 700;
+    /* 700 is the numeric value for 'bold' */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ... the rest of your CSS file starts here ... */
+
+/* CSS Variables: The single source of truth for design tokens */
+:root {
+    /* Color Palette */
+    --color-bg: #FFFFFF;
+    --color-text: #0A0A0A;
+    --color-primary: #007BFF;
+    --color-border: #EAEAEA;
+    --color-white: #FFFFFF;
+
+    /* Typography */
+    --font-primary: 'LG Smart', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    /* Typographic Scale (Major Third: 1.250) - Base: 18px */
+    --font-size-base: 1rem;
+    /* 18px */
+    --font-size-h1: 3.052rem;
+    /* ~55px */
+    --font-size-h2: 1.953rem;
+    /* ~35px */
+    --font-size-h3: 1.563rem;
+    /* ~28px */
+    --font-size-small: 0.8rem;
+    /* ~14.4px */
+
+    /* Spacing (8pt Grid System) */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 40px;
+    --space-xl: 80px;
+    --space-xxl: 120px;
+
+    /* Layout */
+    --container-width: 1100px;
+    --header-height: 72px;
+}
+
+/* A modern CSS reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 18px;
+    /* Sets the base for 1rem = 18px */
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------------------------------- */
+/* --- 2. TYPOGRAPHY & GLOBAL ELEMENTS --- */
+/* ---------------------------------- */
+
+h1,
+h2,
+h3 {
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+p {
+    margin-bottom: var(--space-md);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+small {
+    font-size: var(--font-size-small);
+}
+
+/* ---------------------------------- */
+/* --- 3. LAYOUT & UTILITY CLASSES --- */
+/* ---------------------------------- */
+
+.container {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-padding {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+}
+
+/* ---------------------------------- */
+/* --- 4. COMPONENTS --- */
+/* ---------------------------------- */
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+    opacity: 1;
+}
+
+.btn-inverted {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-white);
+}
+
+.btn-inverted:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    opacity: 1;
+}
+
+/* Header & Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    font-weight: var(--font-weight-bold);
+    font-size: 1.2rem;
+    color: var(--color-text);
+}
+
+.logo:hover {
+    opacity: 1;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.nav-links a {
+    color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Main Content Wrapper */
+main {
+    padding-top: var(--header-height);
+}
+
+/* Hero Section */
+.hero {
+    padding-top: var(--space-xxl);
+    padding-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.hero h1 {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero p {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-lg);
+    font-size: 1.1rem;
+}
+
+/* Project Showcase Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.project-card {
+    text-decoration: none;
+    color: var(--color-text);
+    display: block;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.project-image {
+    background-color: #f5f5f5;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: var(--space-md);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card h3 {
+    margin-bottom: var(--space-xs);
+}
+
+.project-card p {
+    margin-bottom: var(--space-sm);
+}
+
+.project-card .case-study-link {
+    font-weight: var(--font-weight-bold);
+}
+
+/* CTA Section */
+.cta-section {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+}
+
+.cta-section h2 {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-section p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-lg);
+    opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+}
+
+.footer p {
+    margin-bottom: var(--space-sm);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.social-links a {
+    color: var(--color-text);
+}
+
+.social-links a svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Project Detail Page */
+.project-hero {
+    text-align: center;
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-lg);
+}
+
+.project-hero .category {
+    display: block;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.project-hero-image {
+    margin-top: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+
+.case-study-content {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.case-study-content h3 {
+    margin-top: var(--space-lg);
+}
+
+.case-study-content img {
+    margin-top: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
+/* Contact Page */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+}
+
+.contact-form .form-group {
+    margin-bottom: var(--space-md);
+}
+
+.contact-form label {
+    display: block;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-xs);
+}
+
+.contact-form .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+.contact-form .form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.contact-form textarea.form-control {
+    resize: vertical;
+}
+
+/* ---------------------------------- */
+/* --- 5. RESPONSIVE DESIGN --- */
+/* ---------------------------------- */
+
+/* ---------------------------------- */
+/* --- 5. RESPONSIVE DESIGN --- */
+/* ---------------------------------- */
+
+@media (max-width: 1024px) {
+
+    /* On tablets and below, disable the custom cursor for a better touch experience */
+    .custom-cursor {
+        display: none;
+    }
+
+    body,
+    a,
+    button {
+        cursor: auto;
+        /* Restore the default cursor */
+    }
+}
+
+/* --- MOBILE OPTIMIZATION PASS (768px and below) --- */
+@media (max-width: 768px) {
+    /* --- 1. Typography & Readability Fixes --- */
+
+    /* Adjust base font sizes for mobile */
+    :root {
+        --font-size-h1: 2.2rem;
+        /* ~39px - Reduced for better fit */
+        --font-size-h2: 1.7rem;
+        /* ~31px - Stays the same, was already good */
+        --font-size-h3: 1.3rem;
+        /* ~23px - Slightly smaller for card titles */
+    }
+
+    /* The GAME-CHANGER for headlines. */
+    /* This tells the browser to automatically balance the line lengths. */
+    /* It will prevent the ugly single-word wraps you're seeing. */
+    h1,
+    h2 {
+        text-wrap: balance;
+        overflow-wrap: break-word;
+    }
+
+    h1 {
+        hyphens: auto;
+        /* <-- Add this line */
+    }
+
+    /* --- 2. Spacing & Layout Adjustments --- */
+
+    /* Reduce vertical padding for a tighter, faster-scrolling experience */
+    .section-padding {
+        padding-top: var(--space-lg);
+        /* Was 80px, now 40px */
+        padding-bottom: var(--space-lg);
+    }
+
+    .hero {
+        padding-top: var(--space-xl);
+        /* Was 120px, now 80px */
+        padding-bottom: var(--space-lg);
+        /* Was 80px, now 40px */
+        min-height: 60vh;
+        /* Ensures the hero has presence without being too tall */
+        display: flex;
+        align-items: center;
+    }
+
+    /* --- 3. Component-Specific Fixes --- */
+
+    /* Mobile Navigation (already existed, kept for completeness) */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Start off-screen */
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--color-bg);
+        flex-direction: column;
+        padding: var(--space-xxl) var(--space-lg);
+        gap: var(--space-lg);
+        transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-open .nav-links {
+        right: 0;
+        /* Slide in */
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    /* Adjust grids (already existed, kept for completeness) */
+    .project-grid,
+    .contact-grid,
+    .project-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-links .btn {
+        display: block;
+        margin: 0 0 var(--space-sm) 0;
+    }
+
+    .project-links .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ---------------------------------- */
+/* --- 6. ANIMATIONS & ENHANCEMENTS --- */
+/* ---------------------------------- */
+
+/* --- A. Scroll-Triggered Fade-in Animation --- */
+/* This is the initial state of any element we want to animate on scroll. */
+/* It's off-screen (translateY) and invisible (opacity 0). */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1),
+        transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* This class will be added by JavaScript when the element is in the viewport. */
+/* It brings the element to its natural position and makes it fully visible. */
+.fade-in-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- B. Animated Hero Headline --- */
+/* We'll wrap each line of the H1 in a div to control its overflow */
+.hero h1 .hero-line {
+    overflow: hidden;
+    padding-bottom: 0.1em;
+    /* Prevents letters like 'g' from being cut off */
+}
+
+/* Each letter will be a span, initially hidden */
+.hero h1 span {
+    display: inline-block;
+    transform: translateY(110%);
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+
+/* --- C. Enhanced Project Card Hover --- */
+/* We'll add a more pronounced visual cue on hover */
+.project-card .case-study-link span {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card:hover .case-study-link span {
+    transform: translateX(5px);
+}
+
+/* The image lift effect is already good, we'll keep it. */
+.project-card:hover .project-image {
+    transform: scale(1.03) translateY(-5px);
+    /* Add a subtle lift */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* --- D. Navigation Link Micro-interaction --- */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* ---------------------------------- */
+/* --- 7. IMMERSIVE & DYNAMIC EFFECTS --- */
+/* ---------------------------------- */
+
+/* --- E. Custom Cursor --- */
+/* Hide the default cursor for the whole page */
+body,
+a,
+button {
+    cursor: auto;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: auto;
+    /* The cursor itself should not be interactive */
+    z-index: 0;
+    mix-blend-mode: difference;
+    /* Cool effect against different colors */
+}
+
+.custom-cursor .dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-white);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.custom-cursor .circle {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-white);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease-out, width 0.2s ease-out, height 0.2s ease-out;
+}
+
+/* State change when hovering over links/buttons */
+.cursor-grow .circle {
+    transform: translate(-50%, -50%) scale(1.5);
+    width: 60px;
+    height: 60px;
+}
+
+/* --- F. 3D Tilt Effect for Project Cards --- */
+.project-card {
+    /* Enable 3D transformations */
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.1s linear;
+    /* Smooths out mouse movement */
+}
+
+.project-card .project-image,
+.project-card h3,
+.project-card p,
+.project-card .case-study-link {
+    /* Make child elements "pop out" a bit */
+    transform: translateZ(20px);
+}
+
+/* --- G. Page Transition Overlay --- */
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-text);
+    z-index: 9998;
+    transform: translateY(100%);
+    /* Start below the viewport */
+    transition: transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.page-transition-overlay.is-active {
+    transform: translateY(0);
+    /* Slide up to cover the screen */
+}
+
+.page-transition-overlay.is-leaving {
+    transform: translateY(-100%);
+    /* Slide up and out */
+}
+
+/* ---------------------------------- */
+/* --- 8. FINAL POLISH & PROJECT SHOWCASE --- */
+/* ---------------------------------- */
+
+/* --- H. Project Page "Before & After" --- */
+.project-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+    margin-top: var(--space-xl);
+}
+
+.showcase-item {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: var(--space-sm);
+    background-color: #fdfdfd;
+}
+
+.showcase-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+    text-align: center;
+}
+
+.showcase-item video,
+.showcase-item img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.project-links {
+    margin-top: var(--space-xl);
+    text-align: center;
+}
+
+.project-links .btn {
+    margin: 0 var(--space-xs);
+}
+
+/* --- I. Particle Background Canvas --- */
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Place it behind all content */
+    opacity: 0.5;
+}
+
+/* --- J. Adaptive Design Refinements --- */
+@media (max-width: 1024px) {
+
+    /* On tablets and below, disable the custom cursor for a better touch experience */
+    .custom-cursor {
+        display: none;
+    }
+
+    body,
+    a,
+    button {
+        cursor: auto;
+        /* Restore the default cursor */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* On mobile, stack the before/after showcase */
+    .project-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-links .btn {
+        display: block;
+        margin-bottom: var(--space-sm);
+    }
+}

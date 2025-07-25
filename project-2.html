@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Meta Tags -->
+    <title>Case Study: USA Plumbing Website | Thoma Koli</title>
+    <meta name="description"
+        content="A detailed case study on the strategic redesign of a local coffee roaster, focusing on launching an e-commerce platform and subscription service.">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript (deferred for performance) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Thoma Koli</a>
+            <nav class="nav-links">
+                <a href="index.html#projects">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- (B) Section 1: Project Hero (Unchanged) -->
+        <section class="project-hero">
+            <div class="container">
+                <small class="category">Skilled Trades & Construction</small>
+                <h1>Redesigning USA Plumbing LLC for Online Growth</h1>
+            </div>
+        </section>
+
+        <!-- (C) Section 2: The Case Study (Unchanged Text) -->
+        <section class="section-padding">
+            <div class="container case-study-content fade-in-element">
+                <h2>The Problem</h2>
+                <p>This isn't a website; it's a single, static image.
+                    This is a catastrophic technical, SEO, and accessibility failure, making it invisible to Google and
+                    unusable for screen readers.
+                    The UI/UX is severely dated, featuring a non-responsive, fixed-width layout that will break on
+                    mobile devices.
+                    The distracting, low-resolution tiled background, poor typographic hierarchy, and cluttered footer
+                    create an unprofessional and untrustworthy impression.
+                    From a conversion perspective, calls-to-action are passive and non-interactive.
+                    The massive "wall of text" listing services overwhelms users instead of guiding them, causing high
+                    bounce rates and lost revenue.
+                    The entire structure lacks a clear user journey or information architecture, failing to solve
+                    customer problems efficiently.
+                </p>
+            </div>
+        </section>
+
+        <!-- (D) NEW Section 3: The Transformation Showcase -->
+        <section class="section-padding" style="padding-top: 0;">
+            <div class="container fade-in-element">
+                <div class="project-showcase-grid">
+                    <!-- BEFORE -->
+                    <div class="showcase-item">
+                        <h4>Before: The Original Site</h4>
+                        <!-- 
+                        IMPORTANT: Create a short, looping, silent video (MP4 or WebM)
+                        or an animated GIF showing the old site.
+                    -->
+                        <video src="assets/images/videos/usa-plumbing-before.mp4" autoplay loop muted playsinline
+                            alt="Video of the old website design."></video>
+                    </div>
+                    <!-- AFTER -->
+                    <div class="showcase-item">
+                        <h4>After: The New Design</h4>
+                        <!-- 
+                        Create a video/GIF showing the new, improved design in action.
+                        Show scrolling, clicking, etc.
+                    -->
+                        <video src="assets/images/videos/usa-plumbing-after.mp4" autoplay loop muted playsinline
+                            alt="Video of the new, redesigned website."></video>
+                    </div>
+                </div>
+
+                <div class="project-links">
+                    <!-- 
+                    IMPORTANT: Update these links.
+                    The "Live Site" can link to a Netlify/Vercel deploy of the mockup.
+                    The "Original Site" can link to the actual client site if it exists.
+                -->
+                    <a href="https://thomakoli.github.io/USA-Plumbing/" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-primary" data-magnetic>View Live Demo</a>
+                    <a href="http://www.usaplumbingmb.com/" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-secondary">View Original Site</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- (E) Final CTA (Unchanged) -->
+        <section class="cta-section section-padding fade-in-element">
+            <div class="container">
+                <h2>See what I can build for you.</h2>
+                <a href="contact.html" class="btn btn-inverted" data-magnetic>Get a Free Proposal</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="current-year">2024</span> Thoma Koli. A revenue-focused web designer.</p>
+            <!-- Social links can be copied from index.html -->
+        </div>
+        <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+    </footer>
+
+</body>
+
+</html>

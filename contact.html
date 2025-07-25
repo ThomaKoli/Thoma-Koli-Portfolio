@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Meta Tags -->
+    <title>Contact | Thoma Koli</title>
+    <meta name="description"
+        content="Let's discuss your project. Fill out the form to schedule a free, no-obligation discovery call about your website goals.">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JavaScript (deferred for performance) -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">Thoma Koli</a>
+            <nav class="nav-links">
+                <a href="index.html#projects">Projects</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open Menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section-padding" style="padding-top: var(--space-xxl);">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Left Column: The "Why" -->
+                    <div class="contact-info">
+                        <h1>Let's Build Your Competitive Advantage.</h1>
+                        <p>Fill out the form, and I'll get back to you within 24 hours to schedule a brief discovery
+                            call. We'll discuss your project, your goals, and how I can help. No pressure, no
+                            obligation.</p>
+                        <p>You can also reach me directly at:<br>
+                            <a href="mailto:hello@thomakoli.com">hello@thomakoli.com</a>
+                        </p>
+                    </div>
+
+                    <!-- Right Column: The Form -->
+                    <form id="contact-form" class="contact-form" action="YOUR_FORM_ENDPOINT" method="POST">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="work-email">Work Email</label>
+                            <input type="email" id="work-email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-details">Tell me about your project</label>
+                            <textarea id="project-details" name="message" class="form-control" rows="5"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="current-year">2024</span> Thoma Koli. A revenue-focused web designer.</p>
+            <!-- Social links can be copied from index.html -->
+        </div>
+        <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+    </footer>
+    <!-- Place on contact.html before </body> -->
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function () {
+                // Fire Google Analytics Event
+                if (typeof gtag === 'function') {
+                    gtag('event', 'generate_lead', {
+                        'event_category': 'contact',
+                        'event_label': 'form_submission'
+                    });
+                }
+                // You can also add other tracking pixels here (e.g., LinkedIn, Facebook)
+            });
+        }
+    </script>
+</body>
+
+</html>
