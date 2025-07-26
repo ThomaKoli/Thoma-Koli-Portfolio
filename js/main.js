@@ -81,13 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- D. DESKTOP-ONLY IMMERSIVE EFFECTS ---
     if (isDesktop()) {
-        // All the desktop effects (cursor, magnetic, tilt, particles)
-        // remain the same as your last working version.
-        // ... (Paste the full code for these effects here) ...
-        const cursor = document.createElement('div');
-        cursor.className = 'custom-cursor';
-        cursor.innerHTML = '<div class="dot"></div><div class="circle"></div>';
-        document.body.appendChild(cursor);
-        // ... and so on for the rest of the desktop effects.
-    }
-});
+    };
+
+})
